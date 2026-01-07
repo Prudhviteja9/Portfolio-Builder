@@ -1,52 +1,232 @@
-# PortfoliAI
+# PortfoliAI - Portfolio Builder
 
-A beautiful, modern web application for students to submit their portfolio building requests. Built with Next.js 14, TypeScript, and TailwindCSS with a dark, premium design aesthetic.
+![Portfolio Builder](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue?style=flat-square&logo=typescript)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-## Features
+A stunning, modern web application that helps students get recruiter-ready portfolios built in 48 hours. This is the landing page and application platform for PortfoliAI's done-for-you portfolio building service.
 
-- **Modern Design**: Dark theme with glassmorphism, soft glows, and smooth animations
-- **Three Pages**:
-  - Landing page with hero, how it works, samples, pricing, and FAQ
-  - Application form connected to Formspree
-  - Success confirmation page
-- **Form Submission**: Integrated with Formspree for email delivery (no backend needed)
-- **Fully Responsive**: Mobile-first design that works on all devices
-- **Accessible**: Proper labels, focus states, and semantic HTML
-- **Production Ready**: Clean code, TypeScript, and optimized build
+## 🎯 Overview
 
-## Tech Stack
+PortfoliAI is a premium portfolio-as-a-service platform designed for:
+- **Data Analysts**
+- **Software Engineers**
+- **ML Engineers**
+- **Product Managers**
 
-- **Next.js 14+** (App Router)
-- **TypeScript**
-- **TailwindCSS**
-- **Formspree** (form handling)
+Students submit their information through an elegant application form, and our team builds professional portfolios that showcase projects, tell their story, and help them land interviews.
 
-## Getting Started
+## ✨ Features
+
+### Design & UX
+- **Premium Dark Aesthetic**: Modern glassmorphism with soft glows and smooth animations
+- **Fully Responsive**: Mobile-first design optimized for all devices
+- **Smooth Animations**: Fade-up sections, typewriter effects, scroll progress tracking
+- **Galaxy Background**: Eye-catching animated background on hero section
+- **Confetti Effects**: Celebration animation on successful form submission
+
+### Functionality
+- **Landing Page**: Hero section, how-it-works guide, portfolio samples, pricing, and FAQ
+- **Application Form**: Multi-step form for portfolio requests with file uploads
+- **Form Handling**: Integrated with Formspree (no backend required)
+- **Success Page**: Confirmation view after successful submission
+- **Accessibility**: Proper labels, focus states, and semantic HTML
+
+### Technical
+- **Production Ready**: Clean, maintainable TypeScript code
+- **Type Safe**: Full TypeScript support throughout
+- **Optimized**: Automatic image optimization and code splitting
+- **SEO Friendly**: Proper meta tags and semantic markup
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| **Next.js 14** | React framework with App Router |
+| **TypeScript** | Type-safe JavaScript |
+| **TailwindCSS** | Utility-first CSS framework |
+| **PostCSS** | CSS transformations |
+| **React 18** | UI library |
+| **Formspree** | Form submission handling |
+
+## 📁 Project Structure
+
+```
+Portfolio-Builder/
+├── app/                           # Next.js app directory
+│   ├── layout.tsx                # Root layout with metadata
+│   ├── page.tsx                  # Landing/home page
+│   ├── globals.css               # Global styles
+│   ├── apply/
+│   │   └── page.tsx              # Application form page
+│   └── submitted/
+│       └── page.tsx              # Success confirmation page
+├── components/                    # Reusable React components
+│   ├── AnimatedSection.tsx       # Fade-up animation wrapper
+│   ├── Button.tsx                # Custom button component
+│   ├── Card.tsx                  # Card component for content
+│   ├── Accordion.tsx             # Expandable FAQ sections
+│   ├── Tabs.tsx                  # Tabbed content
+│   ├── TypewriterText.tsx        # Typewriter animation
+│   ├── GalaxyBackground.tsx      # Animated background
+│   ├── HeroPreview.tsx           # Hero section preview
+│   ├── PortfolioPreview.tsx      # Portfolio samples
+│   ├── UploadDropzone.tsx        # File upload component
+│   ├── BeforeAfter.tsx           # Before/after comparison
+│   ├── ScrollProgress.tsx        # Progress bar
+│   ├── Step.tsx                  # Step indicator
+│   ├── Confetti.tsx              # Celebration effect
+│   └── Field.tsx                 # Form field component
+├── public/                        # Static assets
+├── tailwind.config.ts            # TailwindCSS configuration
+├── tsconfig.json                 # TypeScript configuration
+├── next.config.mjs               # Next.js configuration
+├── postcss.config.mjs            # PostCSS configuration
+└── package.json                  # Dependencies and scripts
+```
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ installed
-- npm or yarn package manager
+- **Node.js**: 18.17 or higher
+- **npm** or **yarn** package manager
 
 ### Installation
 
-1. **Install dependencies**
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/Prudhviteja9/Portfolio-Builder.git
+cd Portfolio-Builder
+```
+
+2. **Install dependencies**
 
 ```bash
 npm install
 ```
 
-2. **Run the development server**
+3. **Configure environment variables** (if needed)
+
+Create a `.env.local` file for any environment-specific settings.
+
+4. **Run development server**
 
 ```bash
 npm run dev
 ```
 
-3. **Open your browser**
+5. **Open your browser**
 
 Navigate to [http://localhost:3000](http://localhost:3000)
 
-The app should now be running locally!
+The application should now be running with hot-reload enabled!
+
+## 📦 Available Scripts
+
+```bash
+# Development server with hot-reload
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Run ESLint
+npm run lint
+```
+
+## 🎨 Design Highlights
+
+- **Color Scheme**: Dark theme with purple accents and white text
+- **Typography**: Large, bold headers with smooth scroll effects
+- **Animations**: 
+  - Fade-up animations on sections
+  - Typewriter effect for dynamic text
+  - Scroll progress tracking
+  - Confetti celebration on form success
+- **Components**: Reusable, modular components with consistent styling
+
+## 🔧 Configuration
+
+### TailwindCSS
+Custom Tailwind configuration for extended theme colors and animations.
+
+### TypeScript
+Strict type-checking enabled for better code quality.
+
+### Next.js
+Configured with App Router for modern React patterns and automatic optimizations.
+
+## 📝 Form Handling
+
+The application form uses **Formspree** for email delivery:
+1. User fills out the application form
+2. Form data is submitted to Formspree endpoint
+3. Email notification sent to the business
+4. User sees success confirmation page
+
+## 🌐 Deployment
+
+### Deploy to Vercel
+
+This project is optimized for deployment on [Vercel](https://vercel.com).
+
+1. **Push to GitHub**
+
+```bash
+git add .
+git commit -m "Deploy to Vercel"
+git push origin main
+```
+
+2. **Connect to Vercel**
+
+- Go to [vercel.com](https://vercel.com)
+- Click "Add New..." → "Project"
+- Select your GitHub repository
+- Click "Import"
+
+3. **Configure Build Settings**
+
+- Framework: Next.js
+- Build Command: `npm run build`
+- Output Directory: `.next`
+
+4. **Deploy**
+
+Vercel will automatically build and deploy your project. You'll get a production URL immediately!
+
+## 📊 Performance
+
+- **Optimized Build**: Automatic code splitting and lazy loading
+- **Image Optimization**: Next.js automatic image optimization
+- **CSS**: TailwindCSS purge unused styles
+- **Type Safety**: TypeScript catches errors at build time
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 👨‍💻 Author
+
+**Prudhvi Teja**
+- GitHub: [@Prudhviteja9](https://github.com/Prudhviteja9)
+- Project: [Portfolio-Builder](https://github.com/Prudhviteja9/Portfolio-Builder)
+
+## 🙏 Acknowledgments
+
+- Next.js team for the amazing framework
+- TailwindCSS for the utility-first CSS framework
+- Vercel for seamless deployment platform
 
 ## Formspree Configuration
 
