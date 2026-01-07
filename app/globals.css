@@ -1,0 +1,466 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8b5cf6 0%, #3b82f6 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a78bfa 0%, #60a5fa 100%);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-30px) translateX(10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Fade in on scroll */
+.fade-in {
+  opacity: 0;
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.fade-in-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.fade-in-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.fade-in-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.fade-in-delay-4 {
+  animation-delay: 0.4s;
+}
+
+/* Animated gradient text */
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    #8b5cf6,
+    #ec4899,
+    #3b82f6,
+    #8b5cf6
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* Floating animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+/* Pulse glow */
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Rotating element */
+.rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+/* Bounce subtle animation utility */
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Shimmer loading effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* ===== GALAXY BACKGROUND ANIMATIONS ===== */
+
+/* Galaxy layer - drift + zoom + rotate */
+@keyframes galaxy-drift-zoom {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.05) rotate(0.5deg);
+  }
+  50% {
+    transform: translate(0, -40px) scale(1.08) rotate(0deg);
+  }
+  75% {
+    transform: translate(-30px, -20px) scale(1.05) rotate(-0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+.galaxy-animate {
+  animation: galaxy-drift-zoom 80s ease-in-out infinite;
+}
+
+/* Nebula drifts - slow, gentle motion */
+@keyframes nebula-float-1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(40px, -30px);
+  }
+  50% {
+    transform: translate(-20px, -50px);
+  }
+  75% {
+    transform: translate(30px, 20px);
+  }
+}
+
+@keyframes nebula-float-2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-50px, 40px);
+  }
+  66% {
+    transform: translate(40px, -30px);
+  }
+}
+
+@keyframes nebula-float-3 {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  30% {
+    transform: translate(calc(-50% + 35px), -40px);
+  }
+  60% {
+    transform: translate(calc(-50% - 40px), 30px);
+  }
+}
+
+@keyframes nebula-float-4 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  40% {
+    transform: translate(45px, 50px);
+  }
+  80% {
+    transform: translate(-35px, -40px);
+  }
+}
+
+@keyframes nebula-float-5 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-40px, -35px);
+  }
+  50% {
+    transform: translate(50px, 40px);
+  }
+  80% {
+    transform: translate(-30px, 20px);
+  }
+}
+
+.nebula-drift-1 {
+  animation: nebula-float-1 100s ease-in-out infinite;
+}
+
+.nebula-drift-2 {
+  animation: nebula-float-2 120s ease-in-out infinite;
+}
+
+.nebula-drift-3 {
+  animation: nebula-float-3 110s ease-in-out infinite;
+}
+
+.nebula-drift-4 {
+  animation: nebula-float-4 95s ease-in-out infinite;
+}
+
+.nebula-drift-5 {
+  animation: nebula-float-5 105s ease-in-out infinite;
+}
+
+/* Star twinkle animations */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes twinkle-subtle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.star-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star-twinkle-subtle {
+  animation: twinkle-subtle 4s ease-in-out infinite;
+}
+
+/* Shooting star animation - more visible and dramatic */
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(400px) translateY(400px);
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.9), 0 0 20px 5px rgba(255, 255, 255, 0.5);
+  animation: shoot 1100ms ease-out forwards;
+  z-index: 10;
+}
+
+.shooting-star-tail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.6) 30%, transparent 100%);
+  filter: blur(1.5px);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Vignette overlay for text readability */
+.vignette-overlay {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
+}
+
+/* Disable galaxy animations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-animate,
+  .nebula-drift-1,
+  .nebula-drift-2,
+  .nebula-drift-3,
+  .nebula-drift-4,
+  .nebula-drift-5,
+  .star-twinkle,
+  .star-twinkle-subtle,
+  .shooting-star {
+    animation: none !important;
+  }
+}
